@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Upload Ticket Image</title>
+    <style>
+        /* ---------------------------------------------------------
+           BAGIAN STYLING TAMPILAN
+        --------------------------------------------------------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #4a90e2;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        input[type="file"] {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button {
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+    <!-- ---------------------------------------------------------
+         JUDUL HALAMAN
+    --------------------------------------------------------- -->
+    <h1>Upload Ticket Image</h1>
+
+    <!-- ---------------------------------------------------------
+         FORM TANPA RADIO BUTTON
+         Hanya ada input file dan tombol submit
+    --------------------------------------------------------- -->
+    <form action="/upload/" method="post" enctype="multipart/form-data">
+        <!-- Input file wajib -->
+        <input type="file" name="file" accept="image/*" required>
+        
+        <!-- Tombol submit -->
+        <button type="submit">Upload and Process</button>
+    </form>
+</body>
+</html>

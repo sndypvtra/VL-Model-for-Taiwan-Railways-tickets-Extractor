@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Output</title>
+    <style>
+        /* ---------------------------------------------------------
+           STYLING
+        --------------------------------------------------------- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #212529;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            max-width: 900px;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e9ecef;
+            transition: background-color 0.3s;
+        }
+        td {
+            color: #495057;
+        }
+        a {
+            color: #ffffff;
+            background-color: #007bff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        a:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- ---------------------------------------------------------
+         JUDUL & FOTO
+    --------------------------------------------------------- -->
+    <h1>OCR Output</h1>
+    <img src="{{ image_url }}" alt="Ticket Image">
+
+    <!-- ---------------------------------------------------------
+         TABEL HASIL OCR (tickets -> loop)
+    --------------------------------------------------------- -->
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Departure Station</th>
+                <th>Arrival Station</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Price</th>
+                <th>Mileage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.date }}</td>
+                <td>{{ ticket.departure_station }}</td>
+                <td>{{ ticket.arrival_station }}</td>
+                <td>{{ ticket.departure_time }}</td>
+                <td>{{ ticket.arrival_time }}</td>
+                <td>{{ ticket.price }}</td>
+                <td>{{ ticket.mileage }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/">Go Back</a>
+</body>
+</html>
